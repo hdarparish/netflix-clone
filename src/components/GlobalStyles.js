@@ -10,7 +10,7 @@ body{
     font-family: 'Montserrat' , sans-serif;
     width:100%;
     /*       background-color: #f5eeee; */
-  /*   background:#141414; */
+    background:#141414;
 }
 h2{
     font-size:3rem;

@@ -22,7 +22,7 @@ const StyledNav = styled.nav`
   padding: 0 4vw;
   position: sticky;
   top: 0;
-  min-height: 8vh;
+  min-height: 6.5vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,20 +35,20 @@ const StyledNav = styled.nav`
     font-weight: lighter;
     font-size: 1.5rem;
 
-    cursor: pointer;
     h1 {
       font-weight: 100;
+      cursor: pointer;
     }
   }
   .nav-links {
     list-style: none;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
     width: 20%;
     margin-left: 3rem;
     li {
       font-size: 0.9rem;
+      cursor: pointer;
     }
   }
 `;
