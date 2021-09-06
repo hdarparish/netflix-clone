@@ -19,7 +19,7 @@ h2{
     color:#333;
 }
 h3{
-    font-size:1.3rem;
+    font-size:1.5rem;
     color: #333;
     padding:1.5rem 0rem;
 }
