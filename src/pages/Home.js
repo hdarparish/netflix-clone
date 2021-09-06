@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 //components
 import GenreSection from "../components/GenreSection";
-//data
-import { MovieState } from "../MovieState";
 //styles
 import styled from "styled-components";
+//redux
+import { useDispatch, useSelector } from "react-redux";
+import { loadMovies } from "../actions/genreAction";
 
 const Home = () => {
-  const [movieSection, setMovieSection] = useState(MovieState);
+  //fetch movies/genres
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadMovies());
+  }, [dispatch]);
+  //get the data back
+  const { genres } = useSelector((state) => state.genres);
   return (
     <Wrapper>
-      {movieSection.map((section, index) => (
-        <GenreSection section={section} key={index} />
-      ))}
+      {genres.length > 0 &&
+        genres.map((section) => (
+          <GenreSection section={section.name} key={section.id} />
+        ))}
     </Wrapper>
   );
 };
