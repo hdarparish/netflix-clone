@@ -5,13 +5,17 @@ import Nav from "./components/Nav";
 //styles
 import GlobalStyles from "./components/GlobalStyles";
 import styled from "styled-components";
+//Router
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <ReactApp>
       <GlobalStyles />
       <Nav />
-      <Home />
+      <Route path={["/movie/:id", "/"]}>
+        <Home />
+      </Route>
     </ReactApp>
   );
 }

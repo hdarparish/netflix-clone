@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 //components
 import MovieCard from "../components/MovieCard";
-//import GenreSection from "../components/GenreSection";
+import MovieDetail from "../components/MovieDetail";
 //styles
 import styled from "styled-components";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { loadMovies } from "../actions/movieAction";
+//router
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
   //fetch movies
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,14 +30,12 @@ const Home = () => {
 
   return (
     <Wrapper>
-      {/*       {genres.map((section, index) => (
-        <GenreSection section={section} key={section.id} />
-      ))} */}
+      {pathId && <MovieDetail pathId={pathId} />}
       <StyledSection>
         <h3>Action</h3>
         <MovieWrapper>
           {actionMovies.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key={movie.id} />
           ))}
         </MovieWrapper>
       </StyledSection>
@@ -41,7 +43,7 @@ const Home = () => {
         <h3>Animation</h3>
         <MovieWrapper>
           {animationMovies.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key={movie.id} />
           ))}
         </MovieWrapper>
       </StyledSection>
@@ -49,7 +51,7 @@ const Home = () => {
         <h3>Documentary</h3>
         <MovieWrapper>
           {horrorMovies.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key={movie.id} />
           ))}
         </MovieWrapper>
       </StyledSection>
@@ -57,7 +59,7 @@ const Home = () => {
         <h3>Romance</h3>
         <MovieWrapper>
           {romanceMovies.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key={movie.id} />
           ))}
         </MovieWrapper>
       </StyledSection>
@@ -65,7 +67,7 @@ const Home = () => {
         <h3>TV Movie</h3>
         <MovieWrapper>
           {tvMovies.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key={movie.id} />
           ))}
         </MovieWrapper>
       </StyledSection>
@@ -73,7 +75,7 @@ const Home = () => {
         <h3>Popular TV</h3>
         <MovieWrapper>
           {popularTv.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key={movie.id} />
           ))}
         </MovieWrapper>
       </StyledSection>
@@ -85,9 +87,7 @@ const Wrapper = styled.div`
   padding-left: 4.5rem;
 `;
 const StyledSection = styled.div`
-  h3 {
-    color: white;
-  }
+  margin-bottom: 1rem;
 `;
 
 const MovieWrapper = styled.div`
