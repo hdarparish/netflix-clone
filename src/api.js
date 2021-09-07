@@ -31,3 +31,7 @@ export const tvMoviesURL = () =>
 //get action movies
 export const popularTvURL = () =>
   `${baseUrl}tv/popular${apiKey}&language=en-US&page=1`;
+
+//get movie detail
+export const movieDetailURL = (movieId) =>
+  `${baseUrl}movie/${movieId}${apiKey}`;

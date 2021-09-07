@@ -16,10 +16,22 @@ const MovieDetail = ({ pathId }) => {
       history.push("/");
     }
   };
-
+  //Data
+  const { movieDetail } = useSelector((state) => state.detail);
+  console.log(movieDetail);
   return (
     <CardShadow className="shadow" onClick={exitDetailHander}>
-      <Detail></Detail>
+      <Detail>
+        <img
+          src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
+        />
+        <h3>{movieDetail.title}</h3>
+        <div>
+          <p>{movieDetail.overview}</p>
+          {movieDetail.genres &&
+            movieDetail.genres.map((genre) => <p>{genre.name}</p>)}
+        </div>
+      </Detail>
     </CardShadow>
   );
 };
@@ -37,15 +49,16 @@ const CardShadow = styled.div`
 const Detail = styled.div`
   width: 50vw;
   height: 100vh;
-  border-radius: 1rem;
-  padding: 2rem 5rem;
   background-color: #181818;
   position: absolute;
   left: 25%;
   color: black;
+  margin-top: 3vh;
   z-index: 10;
   img {
     width: 100%;
+    height: 50vh;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
   }
 `;
 

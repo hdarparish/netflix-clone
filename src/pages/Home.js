@@ -88,9 +88,6 @@ const Wrapper = styled.div`
 `;
 const StyledSection = styled.div`
   margin-bottom: 1rem;
-  h3 {
-    color: white;
-  }
 `;
 
 const MovieWrapper = styled.div`
