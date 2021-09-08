@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 //styles
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const MovieDetail = ({ pathId }) => {
   const history = useHistory();
@@ -18,25 +19,30 @@ const MovieDetail = ({ pathId }) => {
   };
   //Data
   const { movieDetail } = useSelector((state) => state.detail);
-  console.log(movieDetail);
   return (
     <CardShadow className="shadow" onClick={exitDetailHander}>
-      <Detail>
+      <Detail layoutId={pathId}>
         <img
           src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
+          alt={`${movieDetail.title} poster`}
         />
         <h3>{movieDetail.title}</h3>
-        <div>
+        <MovieOverview>
           <p>{movieDetail.overview}</p>
-          {movieDetail.genres &&
-            movieDetail.genres.map((genre) => <p>{genre.name}</p>)}
-        </div>
+          <div className="movie-genre">
+            <p>
+              Genre:
+              {movieDetail.genres &&
+                movieDetail.genres.map((genre) => genre.name).join(", ")}
+            </p>
+          </div>
+        </MovieOverview>
       </Detail>
     </CardShadow>
   );
 };
 
-const CardShadow = styled.div`
+const CardShadow = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
   overflow-y: scroll;
@@ -46,7 +52,7 @@ const CardShadow = styled.div`
   left: 0;
   z-index: 5;
 `;
-const Detail = styled.div`
+const Detail = styled(motion.div)`
   width: 50vw;
   height: 100vh;
   background-color: #181818;
@@ -59,6 +65,25 @@ const Detail = styled.div`
     width: 100%;
     height: 50vh;
     border-radius: 0.5rem 0.5rem 0rem 0rem;
+    box-shadow: 0 8px 6px -6px black;
+  }
+  h3 {
+    margin: 0rem 2rem 0rem 2rem;
+  }
+`;
+
+const MovieOverview = styled(motion.div)`
+  margin: 0rem 2rem 0rem 2rem;
+  display: flex;
+  p {
+    text-align: justify;
+  }
+  .movie-genre {
+    width: 25%;
+    p {
+      padding-left: 1rem;
+      font-size: 1rem;
+    }
   }
 `;
 
