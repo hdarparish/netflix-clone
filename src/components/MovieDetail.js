@@ -18,27 +18,32 @@ const MovieDetail = ({ pathId }) => {
     }
   };
   //Data
-  const { movieDetail } = useSelector((state) => state.detail);
+  const { movieDetail, isLoading } = useSelector((state) => state.detail);
+  console.log(isLoading);
   return (
-    <CardShadow className="shadow" onClick={exitDetailHander}>
-      <Detail layoutId={pathId}>
-        <img
-          src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
-          alt={`${movieDetail.title} poster`}
-        />
-        <h3>{movieDetail.title}</h3>
-        <MovieOverview>
-          <p>{movieDetail.overview}</p>
-          <div className="movie-genre">
-            <p>
-              Genre:
-              {movieDetail.genres &&
-                movieDetail.genres.map((genre) => genre.name).join(", ")}
-            </p>
-          </div>
-        </MovieOverview>
-      </Detail>
-    </CardShadow>
+    <>
+      {!isLoading && (
+        <CardShadow className="shadow" onClick={exitDetailHander}>
+          <Detail layoutId={pathId}>
+            <img
+              src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
+              alt={`${movieDetail.title} poster`}
+            />
+            <h3>{movieDetail.title}</h3>
+            <MovieOverview>
+              <p>{movieDetail.overview}</p>
+              <div className="movie-genre">
+                <p>
+                  Genre:
+                  {movieDetail.genres &&
+                    movieDetail.genres.map((genre) => genre.name).join(", ")}
+                </p>
+              </div>
+            </MovieOverview>
+          </Detail>
+        </CardShadow>
+      )}
+    </>
   );
 };
 

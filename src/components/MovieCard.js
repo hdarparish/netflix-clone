@@ -38,7 +38,7 @@ const MovieCard = ({ movie }) => {
 
 const Movie = styled(motion.div)`
   img {
-    width: 330px;
+    width: 17vw;
     margin: 0.3rem;
     border-radius: 0.3rem;
   }
