@@ -18,30 +18,43 @@ const MovieCard = ({ movie }) => {
     dispatch(loadDetail(movie.id));
   };
   return (
-    <Movie
+    <MovieSection
       variants={popup}
       initial="hidden"
       animate="show"
       layoutId={stringPathId}
       onClick={loadDetailHandler}
     >
-      <Link to={`/movie/${movie.id}`}>
-        <motion.img
-          layoutId={`image ${stringPathId}`}
-          src={postURL + movie.backdrop_path}
-          alt=""
-        />
-      </Link>
-    </Movie>
+      <MovieTile
+        whileHover={{
+          scale: 1.2,
+          transition: {
+            duration: 0.3,
+          },
+        }}
+      >
+        <Link to={`/movie/${movie.id}`}>
+          <motion.div>
+            <motion.img
+              layoutId={`image ${stringPathId}`}
+              src={postURL + movie.backdrop_path}
+              alt={movie.title}
+            />
+          </motion.div>
+        </Link>
+      </MovieTile>
+    </MovieSection>
   );
 };
 
-const Movie = styled(motion.div)`
+const MovieSection = styled(motion.div)`
   img {
     width: 17vw;
     margin: 0.3rem;
     border-radius: 0.3rem;
   }
 `;
+
+const MovieTile = styled(motion.div)``;
 
 export default MovieCard;

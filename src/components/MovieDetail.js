@@ -19,7 +19,7 @@ const MovieDetail = ({ pathId }) => {
   };
   //Data
   const { movieDetail, isLoading } = useSelector((state) => state.detail);
-  console.log(isLoading);
+
   return (
     <>
       {!isLoading && (

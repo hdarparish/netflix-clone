@@ -5,7 +5,6 @@ import MovieDetail from "../components/MovieDetail";
 //styles
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-import { pageAnimation, fadeIn } from "../animation";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { loadMovies } from "../actions/movieAction";
@@ -98,8 +97,28 @@ const StyledSection = styled(motion.div)`
 
 const MovieWrapper = styled(motion.div)`
   display: flex;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
+  padding: 1rem;
+  height: 100%;
+  &:hover div {
+    &:hover {
+      z-index: 1;
+    }
+  }
+  /*   div {
+    transition: 0.3s transform;
+  }
+  &:hover div {
+    &:hover {
+      transform: scale(1.2);
+      z-index: 1;
+    }
+  } */
 `;
 
 export default Home;
+
+/* 
+$moveLeft = -($tileWidth * ($growFactor - 1) / 2) -33
+$moveRight = $330px * ($1.2 - 1) 
+*/
