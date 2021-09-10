@@ -3,23 +3,19 @@ import React from "react";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 //styles
-import GlobalStyles from "./components/GlobalStyles";
-import styled from "styled-components";
+import "./styles/app.scss";
 //Router
 import { Route } from "react-router-dom";
 
 function App() {
   return (
-    <ReactApp>
-      <GlobalStyles />
+    <div className="App">
       <Nav />
       <Route path={["/movie/:id", "/"]}>
         <Home />
       </Route>
-    </ReactApp>
+    </div>
   );
 }
-
-const ReactApp = styled.div``;
 
 export default App;

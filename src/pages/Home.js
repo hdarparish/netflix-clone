@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import MovieDetail from "../components/MovieDetail";
 //styles
-import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 //redux
 import { useDispatch, useSelector } from "react-redux";
@@ -30,91 +29,63 @@ const Home = () => {
   } = useSelector((state) => state.movies);
 
   return (
-    <Wrapper>
+    <motion.div className="wrapper">
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
         </AnimatePresence>
-        <StyledSection>
+        <motion.div className="genre-section">
           <motion.h3>Action</motion.h3>
-          <MovieWrapper>
+          <motion.div className="movie-wrapper">
             {actionMovies.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}
-          </MovieWrapper>
-        </StyledSection>
-        <StyledSection>
+          </motion.div>
+        </motion.div>
+        <motion.div className="genre-section">
           <motion.h3>Animation</motion.h3>
-          <MovieWrapper>
+          <motion.div className="movie-wrapper">
             {animationMovies.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}
-          </MovieWrapper>
-        </StyledSection>
-        <StyledSection>
+          </motion.div>
+        </motion.div>
+        <motion.div className="genre-section">
           <motion.h3>Horror</motion.h3>
-          <MovieWrapper>
+          <motion.div className="movie-wrapper">
             {horrorMovies.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}
-          </MovieWrapper>
-        </StyledSection>
-        <StyledSection>
+          </motion.div>
+        </motion.div>
+        <motion.div className="genre-section">
           <motion.h3>Romance</motion.h3>
-          <MovieWrapper>
+          <motion.div className="movie-wrapper">
             {romanceMovies.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}
-          </MovieWrapper>
-        </StyledSection>
-        <StyledSection>
+          </motion.div>
+        </motion.div>
+        <motion.div className="genre-section">
           <motion.h3>TV Movie</motion.h3>
-          <MovieWrapper>
+          <motion.div className="movie-wrapper">
             {tvMovies.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}
-          </MovieWrapper>
-        </StyledSection>
-        <StyledSection>
+          </motion.div>
+        </motion.div>
+        <motion.div className="genre-section">
           <motion.h3>Popular TV</motion.h3>
-          <MovieWrapper>
+          <motion.div className="movie-wrapper">
             {popularTv.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}
-          </MovieWrapper>
-        </StyledSection>
+          </motion.div>
+        </motion.div>
       </AnimateSharedLayout>
-    </Wrapper>
+    </motion.div>
   );
 };
-
-const Wrapper = styled(motion.div)`
-  padding-left: 4.5rem;
-`;
-const StyledSection = styled(motion.div)`
-  margin-bottom: 1rem;
-`;
-
-const MovieWrapper = styled(motion.div)`
-  display: flex;
-  overflow: hidden;
-  padding: 1rem;
-  height: 100%;
-  &:hover div {
-    &:hover {
-      z-index: 1;
-    }
-  }
-  /*   div {
-    transition: 0.3s transform;
-  }
-  &:hover div {
-    &:hover {
-      transform: scale(1.2);
-      z-index: 1;
-    }
-  } */
-`;
 
 export default Home;
 

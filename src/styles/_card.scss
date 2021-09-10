@@ -1,0 +1,45 @@
+.card-shadow {
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.movie-overview {
+  width: 50vw;
+  height: 100vh;
+  background-color: #181818;
+  position: absolute;
+  left: 25%;
+  color: black;
+  margin-top: 3vh;
+  z-index: 10;
+  img {
+    width: 100%;
+    height: 50vh;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    box-shadow: 0 8px 6px -6px black;
+  }
+  h3 {
+    margin: 0rem 2rem 0rem 2rem;
+  }
+}
+
+.movie-detail {
+  margin: 0rem 2rem 0rem 2rem;
+  display: flex;
+  p {
+    text-align: justify;
+  }
+  .movie-genre {
+    width: 25%;
+    p {
+      padding-left: 1rem;
+      font-size: 1rem;
+    }
+  }
+}
