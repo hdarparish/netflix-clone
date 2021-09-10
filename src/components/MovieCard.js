@@ -1,6 +1,5 @@
 import React from "react";
 //styles
-import styled from "styled-components";
 import { motion } from "framer-motion";
 import { popup } from "../animation";
 //router
@@ -18,43 +17,25 @@ const MovieCard = ({ movie }) => {
     dispatch(loadDetail(movie.id));
   };
   return (
-    <MovieSection
+    <motion.div
+      className="movie-section"
       variants={popup}
       initial="hidden"
       animate="show"
       layoutId={stringPathId}
       onClick={loadDetailHandler}
     >
-      <MovieTile
-        whileHover={{
-          scale: 1.2,
-          transition: {
-            duration: 0.3,
-          },
-        }}
-      >
+      <motion.div className="movie-tile">
         <Link to={`/movie/${movie.id}`}>
-          <motion.div>
-            <motion.img
-              layoutId={`image ${stringPathId}`}
-              src={postURL + movie.backdrop_path}
-              alt={movie.title}
-            />
-          </motion.div>
+          <motion.img
+            layoutId={`image ${stringPathId}`}
+            src={postURL + movie.backdrop_path}
+            alt={movie.title}
+          />
         </Link>
-      </MovieTile>
-    </MovieSection>
+      </motion.div>
+    </motion.div>
   );
 };
-
-const MovieSection = styled(motion.div)`
-  img {
-    width: 17vw;
-    margin: 0.3rem;
-    border-radius: 0.3rem;
-  }
-`;
-
-const MovieTile = styled(motion.div)``;
 
 export default MovieCard;
