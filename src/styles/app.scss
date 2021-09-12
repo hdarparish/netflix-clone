@@ -20,7 +20,7 @@ h2 {
 h3 {
   font-size: 1.5rem;
   color: white;
-  padding: 1.5rem 0rem;
+  padding: 1rem 0rem;
   padding-left: 4.5rem;
 }
 p {
@@ -29,8 +29,8 @@ p {
   color: white;
 }
 span {
-  font-weight: bold;
-  color: #39af95;
+  font-weight: normal;
+  color: #777;
 }
 a {
   text-decoration: none;
@@ -38,9 +38,6 @@ a {
 }
 img {
   display: block;
-}
-.wrapper {
-  /*   padding: 4.5rem; */
 }
 
 @import "./nav";
