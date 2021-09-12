@@ -4,7 +4,7 @@ const initialState = {
   horrorMovies: [],
   romanceMovies: [],
   tvMovies: [],
-  popularTv: [],
+  historyMovies: [],
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const moviesReducer = (state = initialState, action) => {
         horrorMovies: action.payload.horrorMovies,
         romanceMovies: action.payload.romanceMovies,
         tvMovies: action.payload.tvMovies,
-        popularTv: action.payload.popularTv,
+        historyMovies: action.payload.historyMovies,
       };
     default:
       return { ...state };

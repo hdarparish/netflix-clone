@@ -29,8 +29,8 @@ export const tvMoviesURL = () =>
   `${baseUrl}discover/movie${apiKey}&with_genres=10770`;
 
 //get action movies
-export const popularTvURL = () =>
-  `${baseUrl}tv/popular${apiKey}&language=en-US&page=1`;
+export const historyMoviesURL = () =>
+  `${baseUrl}discover/movie${apiKey}&with_genres=36`;
 
 //get movie detail
 export const movieDetailURL = (movieId) =>

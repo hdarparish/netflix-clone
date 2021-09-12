@@ -5,26 +5,26 @@ import {
   horrorMoviesURL,
   romanceMoviesURL,
   tvMoviesURL,
-  popularTvURL,
+  historyMoviesURL,
 } from "../api";
 
 export const loadMovies = () => async (dispatch) => {
   const actionMoviesList = await axios.get(actionMoviesURL());
-  /*   const animationMoviesList = await axios.get(animationMoviesURL());
-  const HorrorMoviesList = await axios.get(horrorMoviesURL());
+  const animationMoviesList = await axios.get(animationMoviesURL());
+  const horrorMoviesList = await axios.get(horrorMoviesURL());
   const romanceMoviesList = await axios.get(romanceMoviesURL());
   const tvMoviesList = await axios.get(tvMoviesURL());
-  const popularTvList = await axios.get(popularTvURL()); */
+  const historyMoviesList = await axios.get(historyMoviesURL());
 
   dispatch({
     type: "FETCH_MOVIES",
     payload: {
       actionMovies: actionMoviesList.data.results,
-      /*       animationMovies: animationMoviesList.data.results,
-      horrorMovies: HorrorMoviesList.data.results,
+      animationMovies: animationMoviesList.data.results,
+      horrorMovies: horrorMoviesList.data.results,
       romanceMovies: romanceMoviesList.data.results,
       tvMovies: tvMoviesList.data.results,
-      popularTv: popularTvList.data.results, */
+      historyMovies: historyMoviesList.data.results,
     },
   });
 };
