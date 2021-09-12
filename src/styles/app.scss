@@ -8,6 +8,8 @@ body {
   width: 100%;
   /*       background-color: #f5eeee; */
   background: #141414;
+  position: relative;
+  height: 100%;
 }
 h2 {
   font-size: 3rem;
@@ -19,6 +21,7 @@ h3 {
   font-size: 1.5rem;
   color: white;
   padding: 1.5rem 0rem;
+  padding-left: 4.5rem;
 }
 p {
   font-size: 1.2rem;
@@ -37,7 +40,7 @@ img {
   display: block;
 }
 .wrapper {
-  padding-left: 4.5rem;
+  /*   padding: 4.5rem; */
 }
 
 @import "./nav";
