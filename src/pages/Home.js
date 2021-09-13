@@ -4,6 +4,7 @@ import MovieCard from "../components/MovieCard";
 import MovieDetail from "../components/MovieDetail";
 //styles
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { breakpoints } from "../animation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper.scss";
@@ -48,6 +49,7 @@ const Home = () => {
             slidesPerGroup={5}
             className="mySwiper"
             navigation
+            breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
               {actionMovies.map((movie) => (
@@ -65,6 +67,7 @@ const Home = () => {
             slidesPerGroup={5}
             className="mySwiper"
             navigation
+            breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
               {animationMovies.map((movie) => (
@@ -82,6 +85,7 @@ const Home = () => {
             slidesPerGroup={5}
             className="mySwiper"
             navigation
+            breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
               {horrorMovies.map((movie) => (
@@ -99,6 +103,7 @@ const Home = () => {
             slidesPerGroup={5}
             className="mySwiper"
             navigation
+            breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
               {romanceMovies.map((movie) => (
@@ -116,6 +121,7 @@ const Home = () => {
             slidesPerGroup={5}
             className="mySwiper"
             navigation
+            breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
               {tvMovies.map((movie) => (
@@ -133,6 +139,7 @@ const Home = () => {
             slidesPerGroup={5}
             className="mySwiper"
             navigation
+            breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
               {historyMovies.map((movie) => (
@@ -151,6 +158,5 @@ const Home = () => {
 export default Home;
 
 /* 
-$moveLeft = -($tileWidth * ($growFactor - 1) / 2) -33
-$moveRight = $330px * ($1.2 - 1) 
+
 */
