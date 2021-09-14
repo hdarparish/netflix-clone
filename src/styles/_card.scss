@@ -39,8 +39,30 @@
   }
   @media (max-width: 1240px) {
     width: 75vw;
-    left: 10%;
-    p {
+    left: 12.5%;
+  }
+  @media (max-width: 750px) {
+    h3 {
+      font-size: 1.3rem;
+    }
+    img {
+      height: 40vh;
+    }
+  }
+  @media (max-width: 600px) {
+    h3 {
+      font-size: 1.2rem;
+    }
+    img {
+      height: 30vh;
+    }
+  }
+  @media (max-width: 500px) {
+    h3 {
+      font-size: 1rem;
+    }
+    img {
+      height: 20vh;
     }
   }
 }
@@ -62,6 +84,25 @@
   @media (max-width: 850px) {
     p {
       font-size: 1rem;
+    }
+    .movie-genre {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  @media (max-width: 550px) {
+    flex-direction: column;
+    margin: 0rem 0.5rem 0rem 0.5rem;
+    p {
+      font-size: 0.9rem;
+    }
+    .movie-genre {
+      width: 100%;
+      p {
+        padding-left: 0rem;
+        font-size: 0.9rem;
+      }
     }
   }
 }
