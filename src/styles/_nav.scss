@@ -35,4 +35,16 @@ nav {
     font-size: 0.9rem;
     cursor: not-allowed;
   }
+  @media (max-width: 1490px) {
+    width: 30%;
+  }
+  @media (max-width: 1000px) {
+    width: 40%;
+  }
+  @media (max-width: 750px) {
+    width: 50%;
+  }
+  @media (max-width: 650px) {
+    display: none;
+  }
 }
