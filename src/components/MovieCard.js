@@ -8,9 +8,8 @@ import { Link } from "react-router-dom";
 import { loadDetail } from "../actions/detailAction";
 import { useDispatch } from "react-redux";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, id }) => {
   const postURL = `https://image.tmdb.org/t/p/w500`;
-  const stringPathId = movie.id.toString();
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
     document.body.style.overflow = "hidden";
@@ -22,13 +21,13 @@ const MovieCard = ({ movie }) => {
       variants={popup}
       initial="hidden"
       animate="show"
-      layoutId={stringPathId}
+      layoutId={id}
       onClick={loadDetailHandler}
     >
       <motion.div className="movie-tile">
-        <Link to={`/movie/${movie.id}`}>
+        <Link to={`/movie/${id}`}>
           <motion.img
-            layoutId={`image ${stringPathId}`}
+            layoutId={`image ${id}`}
             src={postURL + movie.backdrop_path}
             alt={movie.title}
           />

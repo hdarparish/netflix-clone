@@ -37,12 +37,12 @@ const Home = () => {
   } = useSelector((state) => state.movies);
 
   return (
-    <motion.div className="wrapper">
+    <motion.main className="wrapper">
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
         </AnimatePresence>
-        <motion.div className="genre-section">
+        <motion.section className="genre">
           <motion.h3>Action</motion.h3>
           <Swiper
             slidesPerView={6}
@@ -52,15 +52,20 @@ const Home = () => {
             breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
-              {actionMovies.map((movie) => (
-                <SwiperSlide key={movie.id}>
-                  <MovieCard movie={movie} key={movie.id} />
+              {actionMovies.map((movie, index) => (
+                <SwiperSlide key={index}>
+                  <MovieCard
+                    movie={movie}
+                    /* The movie ID was not a unique ID, many genres sections could have the same movie, movie + index ensures it is unique */
+                    key={`${movie.id}-${index}`}
+                    id={`${movie.id}-${index}`}
+                  />
                 </SwiperSlide>
               ))}
             </motion.div>
           </Swiper>
-        </motion.div>
-        <motion.div className="genre-section">
+        </motion.section>
+        <motion.section className="genre">
           <motion.h3>Animation</motion.h3>
           <Swiper
             slidesPerView={6}
@@ -70,15 +75,19 @@ const Home = () => {
             breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
-              {animationMovies.map((movie) => (
-                <SwiperSlide key={movie.id}>
-                  <MovieCard movie={movie} key={movie.id} />
+              {animationMovies.map((movie, index) => (
+                <SwiperSlide key={index}>
+                  <MovieCard
+                    movie={movie}
+                    key={`${movie.id}-${index}`}
+                    id={`${movie.id}-${index}`}
+                  />
                 </SwiperSlide>
               ))}
             </motion.div>
           </Swiper>
-        </motion.div>
-        <motion.div className="genre-section">
+        </motion.section>
+        <motion.section className="genre">
           <motion.h3>Horror</motion.h3>
           <Swiper
             slidesPerView={6}
@@ -88,15 +97,19 @@ const Home = () => {
             breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
-              {horrorMovies.map((movie) => (
-                <SwiperSlide key={movie.id}>
-                  <MovieCard movie={movie} key={movie.id} />
+              {horrorMovies.map((movie, index) => (
+                <SwiperSlide key={index}>
+                  <MovieCard
+                    movie={movie}
+                    key={`${movie.id}-${index}`}
+                    id={`${movie.id}-${index}`}
+                  />
                 </SwiperSlide>
               ))}
             </motion.div>
           </Swiper>
-        </motion.div>
-        <motion.div className="genre-section">
+        </motion.section>
+        <motion.section className="genre">
           <motion.h3>Romance</motion.h3>
           <Swiper
             slidesPerView={6}
@@ -106,15 +119,19 @@ const Home = () => {
             breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
-              {romanceMovies.map((movie) => (
-                <SwiperSlide key={movie.id}>
-                  <MovieCard movie={movie} key={movie.id} />
+              {romanceMovies.map((movie, index) => (
+                <SwiperSlide key={index}>
+                  <MovieCard
+                    movie={movie}
+                    key={`${movie.id}-${index}`}
+                    id={`${movie.id}-${index}`}
+                  />
                 </SwiperSlide>
               ))}
             </motion.div>
           </Swiper>
-        </motion.div>
-        <motion.div className="genre-section">
+        </motion.section>
+        <motion.section className="genre">
           <motion.h3>TV Movie</motion.h3>
           <Swiper
             slidesPerView={6}
@@ -124,15 +141,19 @@ const Home = () => {
             breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
-              {tvMovies.map((movie) => (
-                <SwiperSlide key={movie.id}>
-                  <MovieCard movie={movie} key={movie.id} />
+              {tvMovies.map((movie, index) => (
+                <SwiperSlide key={index}>
+                  <MovieCard
+                    movie={movie}
+                    key={`${movie.id}-${index}`}
+                    id={`${movie.id}-${index}`}
+                  />
                 </SwiperSlide>
               ))}
             </motion.div>
           </Swiper>
-        </motion.div>
-        <motion.div className="genre-section">
+        </motion.section>
+        <motion.section className="genre">
           <motion.h3>Comedy</motion.h3>
           <Swiper
             slidesPerView={6}
@@ -142,16 +163,20 @@ const Home = () => {
             breakpoints={breakpoints}
           >
             <motion.div className="movie-wrapper">
-              {historyMovies.map((movie) => (
+              {historyMovies.map((movie, index) => (
                 <SwiperSlide key={movie.id}>
-                  <MovieCard movie={movie} key={movie.id} />
+                  <MovieCard
+                    movie={movie}
+                    key={`${movie.id}-${index}`}
+                    id={`${movie.id}-${index}`}
+                  />
                 </SwiperSlide>
               ))}
             </motion.div>
           </Swiper>
-        </motion.div>
+        </motion.section>
       </AnimateSharedLayout>
-    </motion.div>
+    </motion.main>
   );
 };
 
