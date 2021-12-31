@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a Netflix clone project. The project uses the TMDB API.
+A Netflix clone website made using React. The website is connected to the TMDB API and requires an API key.
 
 Demo
 https://github.com/hdarparish/netflix-clone
