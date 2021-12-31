@@ -2,22 +2,26 @@
 
 ## Description
 
-A Netflix clone website made using React. The website is connected to the TMDB API and requires an API key.
+Instagram clone website made using React. The website is connected to AWS amplify backend. The users can log-in using their google credentials. Logged in users can upload a post, like a post, and comment on post
 
 Demo
-https://github.com/hdarparish/netflix-clone
+https://instagram-clone.hossein-darparish.com/
 
 ## Prerequisites
 - node
-- TMDB API key
+- AWS
 
 ## Libraries used
 
 ### Frontend
 - React
-- axios
+- graphql
 - framer-motion
-- react-router-dom
-- node-sass
+- sass
 - redux
-- swiper
+- uuid
+- faker
+
+
+### Backend
+- AWS amplify
